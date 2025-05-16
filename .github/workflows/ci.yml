@@ -22,15 +22,11 @@ jobs:
           git submodule update --init
 
       - name: Build mpy-cross
-        run: |
-          cd micropython
-          make -C mpy-cross
+        run: make -C micropython/mpy-cross
 
       - name: Build MicroPython Unix port
-        run: |
-          cd micropython
-          make -C ports/unix
+        run: make -C micropython/ports/unix
 
       - name: Run MicroPython script
         run: |
-          ./micropython/ports/unix/micropython main.py
+          ./micropython/ports/unix/micropython src/main.py
