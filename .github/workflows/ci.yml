@@ -1,0 +1,36 @@
+name: MicroPython Unix CI
+
+on: [push, pull_request]
+
+jobs:
+  micropython-unix:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout your code
+        uses: actions/checkout@v3
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libffi-dev pkg-config python3-dev
+
+      - name: Clone MicroPython source
+        run: |
+          git clone https://github.com/micropython/micropython.git
+          cd micropython
+          git submodule update --init
+
+      - name: Build mpy-cross
+        run: |
+          cd micropython
+          make -C mpy-cross
+
+      - name: Build MicroPython Unix port
+        run: |
+          cd micropython
+          make -C ports/unix
+
+      - name: Run MicroPython script
+        run: |
+          ./micropython/ports/unix/micropython main.py
