@@ -10,23 +10,11 @@ jobs:
       - name: Checkout your code
         uses: actions/checkout@v3
 
-      - name: Install build dependencies
+      - name: Download prebuilt MicroPython Unix binary
         run: |
-          sudo apt-get update
-          sudo apt-get install -y build-essential libffi-dev pkg-config python3-dev
-
-      - name: Clone MicroPython source
-        run: |
-          git clone https://github.com/micropython/micropython.git
-          cd micropython
-          git submodule update --init
-
-      - name: Build mpy-cross
-        run: make -C micropython/mpy-cross
-
-      - name: Build MicroPython Unix port
-        run: make -C micropython/ports/unix
+          curl -L -o micropython https://micropython.org/resources/code/micropython-unix-1.22.1-x86_64
+          chmod +x micropython
+          ./micropython -V  # verify it's working
 
       - name: Run MicroPython script
-        run: |
-          ./micropython/ports/unix/micropython main.py
+        run: ./micropython main.py
