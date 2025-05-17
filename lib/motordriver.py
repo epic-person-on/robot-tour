@@ -117,26 +117,4 @@ def Forward(distance, time):
   pass
         
 
-if __name__ == '__main__':
-    m = MotorDriver()
-    time.sleep(1)
-    print("ttest code")
-    try:
-        print("this is a motor driver test code")
-        
-        #Parameter 1: motor select:'MA', 'MB', 'MC', 'MD'
-        #Parameter 2: turn dir:'forward', 'backward'
-        #Parameter 3: motor speed: 0-100
-        #Parameter 4: Running time: >0
-        print("motor A forward, speed 100%, Run for 2S, then stop")
-        m.MotorRun('MA', 'forward', 100, 20)
-        #print("motor A backward, speed 100%, Run for 2S, then stop")
-        #m.MotorRun('MA', 'backward', 100, 2)
-        #print("motor B forward, speed 50%, Run for 4S, then stop")
-        #m.MotorRun('MB', 'forward', 50, 4)
-        #print("motor B forward, speed 50%, Run for 4S, then stop")
-        #m.MotorRun('MB', 'backward', 50, 4)
-        #time.sleep(2)
-        
-    except KeyboardInterrupt:
-        exit()
+
