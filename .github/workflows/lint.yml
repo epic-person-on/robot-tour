@@ -15,4 +15,7 @@ jobs:
     - name: Install Ruff
       run: pip install ruff
     - name: Run Ruff
-      run: ruff check --output-format=github /
+      run: ruff check --output-format=github lib
+    - name: Ruff main.py
+      run: ruff check --output-format=github main.py
+
