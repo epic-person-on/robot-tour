@@ -2,6 +2,7 @@ import sys
 sys.path.append('./lib')
 import imu
 import motordriver
+import machine
 
 # Setup Motor Driver
 m = MotorDriver()
@@ -10,7 +11,7 @@ m = MotorDriver()
 i2c = machine.I2C(1, sda=machine.Pin(14), scl=machine.Pin(15))
 
 # Setup MPU6050
-mpu = MPU6050.MPU6050(i2c)
+mpu = imu.MPU6050(i2c)
 
 # Wake up mpu
 mpu.wake()
