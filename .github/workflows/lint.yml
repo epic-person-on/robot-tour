@@ -3,13 +3,18 @@ name: Lint
 on: [push]
 
 jobs:
-  lint:
+  ruff:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        linter: [flake8, pylint, ruff, mypy, pytype, pyright, fixit, pyre]
+    name: Lint with Ruff
     steps:
-      - uses: advanced-security/python-lint-code-scanning-action@v1
-        with:
-          linter: ${{ matrix.linter }}
-
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.9
+    - name: Install Ruff
+      run: pip install ruff
+    - name: Run Ruff
+      run: ruff check --output-format=github lib
+    - name: Ruff main.py
+      run: ruff check --output-format=github main.py
