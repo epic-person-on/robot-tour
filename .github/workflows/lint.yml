@@ -15,4 +15,4 @@ jobs:
     - name: Install Ruff
       run: pip install ruff
     - name: Run Ruff
-      run: sudo ruff check --output-format=github /
+      run: ruff check --output-format=github /
