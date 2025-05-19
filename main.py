@@ -5,7 +5,7 @@ import motordriver
 import machine
 
 # Setup Motor Driver
-m = MotorDriver()
+m = motordriver.MotorDriver()
 
 # Setup i2c interface
 i2c = machine.I2C(1, sda=machine.Pin(14), scl=machine.Pin(15))
