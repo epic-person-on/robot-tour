@@ -1,8 +1,11 @@
+# Default libraries
 import sys
+import machine
+
+# Libraries located in ./lib
 sys.path.append('./lib')
 import imu
 import motordriver
-import machine
 
 # Setup Motor Driver
 m = motordriver.MotorDriver()
