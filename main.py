@@ -20,16 +20,22 @@ mpu = imu.MPU6050(i2c)
 mpu.wake()
 
 def forward(distance, time):
-  pass
+  distanceMultiplier = 1.0
+  timeMultiplier = 1.0
+  
 
 def backward(distance, time):
-  pass
+  distanceMultiplier = 1.0
+  timeMultiplier = 1.0
+  
 
 def left(distance, time):
-  pass
+  distanceMultiplier = 1.0
+  timeMultiplier = 1.0
 
 def right(distance, time):
-  pass
+  distanceMultiplier = 1.0
+  timeMultiplier = 1.0
 
 def turn(degrees):
   pass
