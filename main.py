@@ -6,6 +6,7 @@ import machine
 sys.path.append('./lib')
 import imu
 import motordriver
+import buttom
 
 # Setup Motor Driver
 m = motordriver.MotorDriver()
