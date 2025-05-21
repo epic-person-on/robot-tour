@@ -6,7 +6,10 @@ import machine
 sys.path.append('./lib')
 import imu
 import motordriver
-import buttom
+from button import Button
+
+
+
 
 # Setup Motor Driver
 m = motordriver.MotorDriver()
@@ -41,8 +44,24 @@ def right(distance, time):
 def turn(degrees):
   pass
 
+"""
+MAIN FUNCTION:
+
+MODIFY THIS IN COMPETITION
+"""
+
+def main():
+  pass
+
+def start(button, event):
+    if event == Button.RELEASED:
+        main()
+
+button = Button(17, False, start)
+
 if __name__ == "__main__":
-  print("Hello from the robot")
+  while(True):
+    button.update()
 
 
 
