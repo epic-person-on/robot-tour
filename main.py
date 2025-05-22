@@ -3,6 +3,7 @@ import sys
 import machine
 
 # Libraries located in ./lib
+sys.path.append('./lib')
 import imu
 import motordriver
 from button import Button
