@@ -41,20 +41,57 @@ def forward(distance, time):
     m.MotorRun('MD', 'forward', speed, motor_time)
     m.MotorRun('MB', 'forward', speed, motor_time)
 
-  
-
 def backward(distance, time):
-  distanceMultiplier = 1.0
-  timeMultiplier = 1.0
+    if distance <= 0 or time <= 0:
+        print("Distance and time must be greater than zero.")
+        return
+   
+    # Tune the factor
+    factor = 10.0
   
+    speed = min(100, max(0, int((distance / time) * factor)))  
+
+    # Convert time (seconds) to the unit used by MotorRun (assumed tenths of a second)
+    motor_time = int(time * 10)
+
+    print(f"Moving forward: distance={distance}, time={time}, speed={speed}%, duration={motor_time}")
+    m.MotorRun('MD', 'backward', speed, motor_time)
+    m.MotorRun('MB', 'backward', speed, motor_time)  
 
 def left(distance, time):
-  distanceMultiplier = 1.0
-  timeMultiplier = 1.0
+    if distance <= 0 or time <= 0:
+        print("Distance and time must be greater than zero.")
+        return
+   
+    # Tune the factor
+    factor = 10.0
+  
+    speed = min(100, max(0, int((distance / time) * factor)))  
+
+    # Convert time (seconds) to the unit used by MotorRun (assumed tenths of a second)
+    motor_time = int(time * 10)
+
+    print(f"Moving forward: distance={distance}, time={time}, speed={speed}%, duration={motor_time}")
+    m.MotorRun('MA', 'forward', speed, motor_time)
+    m.MotorRun('MC', 'forward', speed, motor_time)
 
 def right(distance, time):
-  distanceMultiplier = 1.0
-  timeMultiplier = 1.0
+    if distance <= 0 or time <= 0:
+        print("Distance and time must be greater than zero.")
+        return
+   
+    # Tune the factor
+    factor = 10.0
+  
+    speed = min(100, max(0, int((distance / time) * factor)))  
+
+    # Convert time (seconds) to the unit used by MotorRun (assumed tenths of a second)
+    motor_time = int(time * 10)
+
+    print(f"Moving forward: distance={distance}, time={time}, speed={speed}%, duration={motor_time}")
+    m.MotorRun('MA', 'backward', speed, motor_time)
+    m.MotorRun('MC', 'backward', speed, motor_time)
+
 
 def turn(degrees):
   pass
@@ -66,6 +103,17 @@ MODIFY THIS IN COMPETITION
 """
 
 def main():
+"""
+Availible actions
+
+forward(distance,time)
+backward(distance,time)
+left(distance,time)
+right(distance,time)
+
+turn(degrees)
+
+"""
   pass
 
 def start(button, event):
