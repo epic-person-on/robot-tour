@@ -23,9 +23,15 @@ mpu = imu.MPU6050(i2c)
 # Wake up mpu
 mpu.wake()
 
+# Movement functions
 def forward(distance, time):
-  distanceMultiplier = 1.0
-  timeMultiplier = 1.0
+  # Multipliers to adjust to change distance.
+  distanceMultiplier = 1.0 * distance
+  timeMultiplier = 1.0 * time
+
+  
+  m.MotorRun('MA', 'forward', 100, distanceMultiplier)
+  m.MotorRun('MB', 'forward', 100, distanceMultiplier)
   
 
 def backward(distance, time):
