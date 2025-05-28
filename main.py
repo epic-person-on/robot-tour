@@ -103,6 +103,7 @@ MODIFY THIS IN COMPETITION
 """
 
 def main():
+    pass
 """
 Availible actions
 
@@ -114,7 +115,7 @@ right(distance,time)
 turn(degrees)
 
 """
-  pass
+  
 
 def start(button, event):
     if event == Button.RELEASED:
