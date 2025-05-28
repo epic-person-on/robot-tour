@@ -11,9 +11,10 @@ try:
     import imu
     import motordriver
     from button import Button
-except error as e:
-    f.write(e)
-    exit()
+except Exception as e:  
+    f.write(str(e) + "\n")
+    f.close()
+    sys.exit()
 
 # Indicator light
 led = machine.Pin("LED", machine.Pin.OUT)
@@ -132,9 +133,10 @@ def start(button, event):
     if event == Button.RELEASED:
         try:
             main()
-        except error as e:
-            f.write(e)
-            exit()
+        except Exception as e:  # Use Exception for compatibility with MicroPython
+            f.write(str(e) + "\n")
+            f.close()
+            sys.exit()
 
 button = Button(17, False, start)
 
