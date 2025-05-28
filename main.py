@@ -25,13 +25,22 @@ mpu.wake()
 
 # Movement functions
 def forward(distance, time):
-  # Multipliers to adjust to change distance.
-  distanceMultiplier = 1.0 * distance
-  timeMultiplier = 1.0 * time
-
+    if distance <= 0 or time <= 0:
+        print("Distance and time must be greater than zero.")
+        return
+   
+    # Tune the factor
+    factor = 10.0
   
-  m.MotorRun('MA', 'forward', 100, distanceMultiplier)
-  m.MotorRun('MB', 'forward', 100, distanceMultiplier)
+    speed = min(100, max(0, int((distance / time) * factor)))  
+
+    # Convert time (seconds) to the unit used by MotorRun (assumed tenths of a second)
+    motor_time = int(time * 10)
+
+    print(f"Moving forward: distance={distance}, time={time}, speed={speed}%, duration={motor_time}")
+    m.MotorRun('MD', 'forward', speed, motor_time)
+    m.MotorRun('MB', 'forward', speed, motor_time)
+
   
 
 def backward(distance, time):
