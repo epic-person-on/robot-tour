@@ -2,12 +2,18 @@
 import sys
 import machine
 
+f = open("logs.txt", "a")
+f.write("---New Run---")
+
 # Libraries located in ./lib
 sys.path.append('./lib')
-import imu
-import motordriver
-from button import Button
-
+try:
+    import imu
+    import motordriver
+    from button import Button
+except error as e:
+    f.write(e)
+    exit()
 
 # Indicator light
 led = machine.Pin("LED", machine.Pin.OUT)
@@ -15,6 +21,7 @@ led.on()
 
 # Setup Motor Driver
 m = motordriver.MotorDriver()
+f.write("MotorDriver initiated")
 
 # Setup i2c interface
 i2c = machine.I2C(1, sda=machine.Pin(14), scl=machine.Pin(15))
@@ -24,6 +31,8 @@ mpu = imu.MPU6050(i2c)
 
 # Wake up mpu
 mpu.wake()
+
+f.write("mpu initiatied")
 
 # Movement functions
 def forward(distance, time):
@@ -106,6 +115,7 @@ MODIFY THIS IN COMPETITION
 
 def main():
     pass
+
 """
 Availible actions
 
@@ -118,10 +128,13 @@ turn(degrees)
 
 """
   
-
 def start(button, event):
     if event == Button.RELEASED:
-        main()
+        try:
+            main()
+        except error as e:
+            f.write(e)
+            exit()
 
 button = Button(17, False, start)
 
