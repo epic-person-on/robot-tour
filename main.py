@@ -9,7 +9,9 @@ import motordriver
 from button import Button
 
 
-
+# Indicator light
+led = machine.Pin("LED", machine.Pin.OUT)
+led.on()
 
 # Setup Motor Driver
 m = motordriver.MotorDriver()
