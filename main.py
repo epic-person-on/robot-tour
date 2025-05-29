@@ -125,15 +125,26 @@ def turn(degrees):
     pass
 
 
-"""
-MAIN FUNCTION:
 
-MODIFY THIS IN COMPETITION
-"""
 
 
 def main():
     pass
+    '''
+    MAIN FUNCTION:
+    
+    MODIFY THIS IN COMPETITION
+    Availible actions
+    
+    forward(distance,time)
+    backward(distance,time)
+    left(distance,time)
+    right(distance,time)
+    
+    turn(degrees)
+    
+    '''
+    
 
 
 """
