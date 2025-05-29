@@ -1,44 +1,46 @@
 [MASTER]
-ignore=build,dist
+ignore=build
 jobs=1
 load-plugins=pylint.extensions.docparams
 
 [MESSAGES CONTROL]
-# Disable messages that are irrelevant or noisy for MicroPython
 disable=
     missing-docstring,
     invalid-name,
     too-few-public-methods,
-    no-member,
-    import-error,
-    unused-import,
     too-many-arguments,
-    too-many-instance-attributes,
     too-many-locals,
     too-many-branches,
     too-many-statements,
-    too-many-boolean-expressions,
-    duplicate-code,
+    too-many-instance-attributes,
+    import-error,             # May be falsely raised due to MicroPython modules
+    no-member,                # May be falsely raised due to dynamic attributes
+    unused-import,
+    unused-argument,
     line-too-long,
-    locally-disabled,
-    c-extension-no-member
+    bad-continuation
 
 [REPORTS]
-output-format=colorized
 reports=no
+output-format=colorized
 
-[FORMAT]
+[BASIC]
+good-names=i,j,k,ex,Run,_,x,y,z
 max-line-length=100
 
 [TYPECHECK]
-# MicroPython might not have standard types and modules
-ignored-modules=usocket,ustruct,ujson,umachine,upysh,network,utime,uos,machine
-ignored-classes=pyb,I2C,SPI,Pin,Timer,UART
+ignored-modules=usocket,utime,uos,ure,umachine,network,machine,esp,esp32,ubinascii,upysh,neopixel
+ignored-classes=pyb,UART,I2C,SPI,PWM,Pin
 
-[DESIGN]
-max-args=6
-max-locals=20
-max-returns=6
-max-branches=12
-max-statements=50
-max-line-length=100
+[FORMAT]
+indent-string='    '
+indent-after-paren=4
+
+[SIMILARITIES]
+min-similarity-lines=4
+ignore-comments=yes
+ignore-docstrings=yes
+ignore-imports=yes
+
+[VARIABLES]
+init-import=no
