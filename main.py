@@ -118,10 +118,10 @@ def right(distance, time):
 
 
 def turn(degrees):
-    m.MotorRun('MA', 'forward', speed, motor_time)
-    m.MotorRun('MB', 'forward', speed, motor_time)
-    m.MotorRun('MC', 'backward', speed, motor_time)
-    m.MotorRun('MD', 'backward', speed, motor_time)
+    m.MotorRun('MA', 'forward', 100, 20)
+    m.MotorRun('MB', 'forward', 100, 20)
+    m.MotorRun('MC', 'backward', 100, 20)
+    m.MotorRun('MD', 'backward', 100, 20)
     pass
 
 
