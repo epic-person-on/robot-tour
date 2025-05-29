@@ -2,7 +2,7 @@
 import sys
 import machine
 
-f = open("logs.txt", "a")
+f = open("logs.txt", "a", encoding="utf-8")
 f.write("---New Run---")
 
 # Libraries located in ./lib
