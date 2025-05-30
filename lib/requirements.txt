@@ -1,2 +1,2 @@
-ruff==0.11.12
-pylint==3.3.7
+ruff
+pylint
