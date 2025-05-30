@@ -15,4 +15,4 @@ jobs:
     - name: Install Pylint
       run: pip install pylint
     - name: pylint main.py
-      run: pylint main.py 
+      run: pylint main.py --fail-under 5 --fail-on E
