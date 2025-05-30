@@ -14,7 +14,7 @@ jobs:
         python-version: 3.9
         cache: 'pip'
     - name: Install Ruff
-      run: pip install ruff
+      run: pip install -r lib/requirements.txt
     - name: Run Ruff
       run: ruff check --output-format=github lib
     - name: Ruff main.py
