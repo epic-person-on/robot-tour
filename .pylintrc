@@ -18,7 +18,6 @@ disable=
     unused-import,
     unused-argument,
     line-too-long,
-    bad-continuation
 
 [REPORTS]
 reports=no
