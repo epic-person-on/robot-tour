@@ -14,6 +14,6 @@ jobs:
         python-version: 3.9
         cache: 'pip'
     - name: Install Pylint
-      run: pip install -r lib/requirements.txt
+      run: pip install pylint
     - name: pylint main.py
       run: pylint main.py --fail-under 5 --fail-on E
