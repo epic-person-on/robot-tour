@@ -5,6 +5,7 @@ load-plugins=pylint.extensions.docparams
 
 [MESSAGES CONTROL]
 disable=
+    broad-exception-caught,
     missing-docstring,
     invalid-name,
     too-few-public-methods,
@@ -13,8 +14,8 @@ disable=
     too-many-branches,
     too-many-statements,
     too-many-instance-attributes,
-    import-error,             # May be falsely raised due to MicroPython modules
-    no-member,                # May be falsely raised due to dynamic attributes
+    import-error,             
+    no-member,                
     unused-import,
     unused-argument,
     line-too-long,
